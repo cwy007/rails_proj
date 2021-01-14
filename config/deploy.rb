@@ -10,7 +10,7 @@ set :rbenv_ruby, "3.0.0"
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/srv/www/my_app_name"
+set :deploy_to, "/srv/www/rails_proj"
 set :user, "webuser"
 
 # Default value for :format is :airbrussh.
