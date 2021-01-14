@@ -52,4 +52,6 @@ namespace :deploy do
       end
     end
   end
+
+  after "deploy:check:make_linked_dirs", 'deploy:upload_config'
 end
