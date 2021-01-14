@@ -40,3 +40,16 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+namespace :deploy do
+ desc 'upload config files for application'
+ task :upload_config do
+    on roles(:web), in: :sequence, wait: 5 do
+      fetch(:linked_files).each do |file_path|
+        unless test "[ -f #{shared_path}/#{file_path} ]"
+          upload!("#{file_path}", "#{shared_path}/#{file_path}", via: :scp)
+        end
+      end
+    end
+  end
+end
