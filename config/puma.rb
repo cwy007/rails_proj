@@ -23,9 +23,9 @@ worker_timeout 3600 if ENV.fetch("RAILS_ENV", "development") == "development"
 
 if ENV.fetch('RAILS_ENV') { 'development' } == 'development'
   # using mkcert self-signed cert enable ssl
-  ssl_bind '0.0.0.0', ENV.fetch('PORT') { 3000 }, cert: 'config/ssl/localhost.pem', key: 'config/ssl/localhost-key.pem'
+  ssl_bind '0.0.0.0', ENV.fetch('PORT') { 8899 }, cert: 'config/ssl/localhost.pem', key: 'config/ssl/localhost-key.pem'
 else
-  port        ENV.fetch('PORT') { 3000 }
+  port        ENV.fetch('PORT') { 8899 }
   environment ENV.fetch('RAILS_ENV') { 'development' }
 end
 
