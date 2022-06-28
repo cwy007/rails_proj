@@ -12,13 +12,14 @@ class Api::ScalesController < ApplicationController
   end
 
   def weight
+    $tmp_redis.set('weight', params[:body] && params[:body][:weight]) if params[:body] && params[:body][:weight];
     render json: {
       code: 200,
       message: '成功',
       data: {
         list: [{
           scale: params[:body] && params[:body][:scales] && params[:body][:scales][0] || 'ABC123',
-          weight: rand(1..20),
+          weight: ($tmp_redis.get('weight') || rand(1..20)).to_i,
           success: 1,
           unit: 'kg',
           msg: 'weight 1-20',
