@@ -19,7 +19,7 @@ class Api::ScalesController < ApplicationController
       data: {
         list: [{
           scale: params[:body] && params[:body][:scales] && params[:body][:scales][0] || 'ABC123',
-          weight: ($tmp_redis.get('weight') || rand(1..20)).to_i,
+          weight: ($tmp_redis.get('weight') || rand(1..20)).to_f,
           success: 1,
           unit: 'kg',
           msg: 'weight 1-20',
