@@ -13,7 +13,7 @@ namespace :packing do
     if PackingStrategy.all.empty?
       PackingStrategyHierarchy.all.each_with_index do |item, index|
         6.times do |ii|
-          PackingStrategy.new({
+          PackingStrategy.create({
             name: "#{item.name}-装箱策略-#{ii+1}",
             packing_strategy_way: rand(0..1),
             theory_quantity: rand(100..200),

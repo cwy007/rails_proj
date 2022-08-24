@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'packing_strategys/index'
   get 'packing_strategy_hierarchys/index'
   resources :posts
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -14,5 +15,6 @@ Rails.application.routes.draw do
     end
 
     resources :packing_strategy_hierarchys
+    resources :packing_strategys
   end
 end
