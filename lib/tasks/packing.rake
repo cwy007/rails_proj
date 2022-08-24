@@ -1,3 +1,4 @@
+# rails packing:createPackingStrategy
 namespace :packing do
   desc "init create PackingStrategy"
   task :createPackingStrategy => :environment do
@@ -5,6 +6,7 @@ namespace :packing do
       3.times do |i|
         PackingStrategyHierarchy.create({ name: "装箱层级#{i + 1}"})
       end
+      print "装箱层级 3 created"
     end
 
 
@@ -12,6 +14,7 @@ namespace :packing do
       PackingStrategyHierarchy.all.each_with_index do |item, index|
         6.times do |ii|
           PackingStrategy.new({
+            name: "#{item.name}-装箱策略-#{ii+1}",
             packing_strategy_way: rand(0..1),
             theory_quantity: rand(100..200),
             full_auto_complete: rand(0..1),
@@ -24,6 +27,7 @@ namespace :packing do
             packing_strategy_hierarchy_id: item.id,
           })
         end
+        print "装箱策略 6 created"
       end
     end
   end

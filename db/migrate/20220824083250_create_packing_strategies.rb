@@ -1,6 +1,7 @@
 class CreatePackingStrategies < ActiveRecord::Migration[6.1]
   def change
     create_table :packing_strategies do |t|
+      t.string :name, comment: '装箱策略名称'
       t.integer :packing_strategy_way, comment: '装箱方式'
       t.integer :theory_quantity, comment: '理论装箱数量'
       t.integer :full_auto_complete, comment: '满箱自动报工'

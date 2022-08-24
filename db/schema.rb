@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2022_08_24_083250) do
 
   create_table "packing_strategies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", comment: "装箱策略名称"
     t.integer "packing_strategy_way", comment: "装箱方式"
     t.integer "theory_quantity", comment: "理论装箱数量"
     t.integer "full_auto_complete", comment: "满箱自动报工"
@@ -29,7 +30,7 @@ ActiveRecord::Schema.define(version: 2022_08_24_083250) do
   end
 
   create_table "packing_strategy_hierarchies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
+    t.string "name", comment: "装箱策略层级名称"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
