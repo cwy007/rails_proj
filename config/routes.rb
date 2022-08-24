@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'packing_strategy_hierarchys/index'
   resources :posts
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'posts#index'
@@ -11,5 +12,7 @@ Rails.application.routes.draw do
         post 'weight' => 'scales#weight'
       end
     end
+
+    resources :packing_strategy_hierarchys
   end
 end
