@@ -1,0 +1,2 @@
+class PackingStrategyHierarchy < ApplicationRecord
+end
